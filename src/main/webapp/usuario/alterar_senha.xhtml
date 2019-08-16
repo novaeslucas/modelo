@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:p="http://primefaces.org/ui"
+                template="#{appBean.default}">
+                
+	<ui:define name="content">                        
+	    <h1 class="page-header ">
+	    	Alterar senha
+	    </h1>
+	    <h:form id="alterar-senha-form" class="form-horizontal" acceptcharset="ISO-8859-1" lang="pt_BR">
+	    	<p:growl id="messages" globalOnly="true" /> 
+	    	<div class="form-group">
+				<label class="col-md-4 control-label" for="nova_senha">Nova senha</label>  
+				<div class="col-md-4">
+					<p:password id="nova_senha"
+							styleClass="form-control input-md"
+							value="#{usuarioController.novaSenha}"
+							match="nova_senha_confirmacao" required="true"
+							requiredMessage="Não pode ser vazio."
+							validatorMessage="O valor digitado em Nova Senha deve ser igual ao Confirmar Nova Senha" />
+				</div>
+				<div class="col-md-4">
+			  		<p:message for="nova_senha"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="nova_senha_confirmacao">Confirmar a nova senha</label>  
+				<div class="col-md-4">
+					<p:password id="nova_senha_confirmacao"
+						styleClass="form-control input-md"
+						value="#{usuarioController.novaSenha}"
+						match="nova_senha_confirmacao" required="true"
+						requiredMessage="Não pode ser vazio."/>
+				</div>
+				<div class="col-md-4">
+			  		<p:message for="nova_senha_confirmacao"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-4"></div>  
+				<div class="col-md-4 text-center">
+					<p:commandButton id="alterar-senha" styleClass="btn btn-primary btn-md"
+						value="Alterar Senha"
+						action="#{usuarioController.alterarSenha}" update="@form" />
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+		</h:form>
+	</ui:define>
+    
+</ui:composition>

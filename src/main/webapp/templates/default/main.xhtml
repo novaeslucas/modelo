@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+			<link rel="apple-touch-icon" href="#{resource['img/favicon-apple.png']}" sizes="180x180"/>
+        	<link rel="icon" href="#{resource['img/favicon-hires.png']}" sizes="192x192"/>
+			<title>Modelo</title>
+        </f:facet>
+
+        <f:facet name="middle">
+        	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    		<h:outputStylesheet name="css/bootstrap.css" />
+    		<h:outputStylesheet name="font-awesome/css/font-awesome.css" />
+    		<h:outputStylesheet name="css/plugins/dataTables/dataTables.bootstrap.css" />
+    		<h:outputStylesheet name="css/plugins/dataTables/responsive.bootstrap.css" />
+    		<h:outputStylesheet name="css/plugins/toastr/toastr.min.css" />
+    		<h:outputStylesheet name="js/plugins/gritter/jquery.gritter.css" />
+    		<h:outputStylesheet name="css/animate.css" />
+    		<h:outputStylesheet name="css/style.css" />
+        </f:facet>
+    </h:head>
+
+    <h:body>
+    	<div id="wrapper">
+    	
+	    	<nav class="navbar-default navbar-static-side" role="navigation">
+	            <div class="sidebar-collapse">
+	                <ul class="nav metismenu" id="side-menu">
+	                   	<li class="nav-header">
+		                    <div class="dropdown profile-element">
+		                        <img alt="image" src="#{resource['img/profile_small.png']}"/>
+		                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+		                            <span class="block m-t-xs font-bold">Modelo</span>
+		                        </a>
+		                    </div>
+		                    <div class="logo-element">
+		                        Modelo
+		                    </div>
+		                </li>
+	                    <li>
+							<a href="#">
+								<i class="fa fa-gears"/>
+								<span class="nav-label">Administração</span>
+								<span class="fa arrow"/>
+							</a>
+							<ul class="nav nav-second-level collapse">
+								<li>
+									<a href="#">
+										<i class="fa fa-group"/>
+										<span class="nav-label">Usuários</span>
+										<span class="fa arrow"/>
+									</a>
+									<ul class="nav nav-third-level collapse">
+										<li>
+											<a href="/modelo/administracao/usuario/buscar">Buscar</a>
+										</li>
+										<li>
+											<a href="/modelo/administracao/usuario/cadastrar">Cadastrar</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+	                </ul>
+	
+	            </div>
+	        </nav>
+    		
+    		<div id="page-wrapper" class="gray-bg">
+    			<div class="row border-bottom" style="height: 60px;">
+				    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+				        <div class="navbar-header">
+				            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-bars"></i> </a>
+				        </div>
+				        <h:form id="navbar-form">
+							<ul class="nav navbar-top-links navbar-right">
+								<li>
+				                    <span class="m-r-sm text-muted welcome-message">Sistema modelo</span>
+				                </li>
+			                	<li>
+									<p:commandLink value=" Sair" action="#{loginBean.logout()}" ajax="false" styleClass="fa fa-sign-out right-sidebar-toggle"/>
+		                        </li>
+				            </ul>
+						</h:form>
+				    </nav>
+				</div>
+    			<ui:insert name="content" /> 
+    		</div>
+    	
+    	</div>
+    	
+    	<script>
+		    $(function(){
+				setNavigation();
+			    });
+
+		    function setNavigation(){
+		    	 var path = window.location.pathname;
+				    path = path.replace(/\/$/,"");
+				    path = decodeURIComponent(path);
+					
+				    $(".nav a").each(function(){
+						var href = $(this).attr('href');
+						if(path.substring(0,href.length) === href){
+							$(this).closest('li').addClass('active');	
+						}
+					});
+			 }
+	    </script>
+    	
+    	<h:outputScript name="js/popper.min.js" />
+    	<h:outputScript name="js/bootstrap.js" />
+    	<h:outputScript name="js/plugins/metisMenu/jquery.metisMenu.js" />
+    	<h:outputScript name="js/plugins/slimscroll/jquery.slimscroll.min.js" />
+    	
+    	<h:outputScript name="js/plugins/peity/jquery.peity.min.js" />
+    	<h:outputScript name="js/inspinia.js" />   
+    	<h:outputScript name="js/plugins/pace/pace.min.js" />
+    	<h:outputScript name="js/plugins/jquery-ui/jquery-ui.min.js" />
+    	<h:outputScript name="js/plugins/gritter/jquery.gritter.min.js" />
+    	<h:outputScript name="js/plugins/toastr/toastr.min.js" />
+    	
+    	<h:outputScript name="js/plugins/dataTables/jquery.dataTables.js" />
+    	<h:outputScript name="js/plugins/dataTables/dataTables.bootstrap.js" />
+    	<h:outputScript name="js/plugins/dataTables/dataTables.responsive.js" />
+    	<h:outputScript name="js/plugins/dataTables/responsive.bootstrap.js" />
+    	
+    	<h:outputScript name="js/jszip.js" />
+        <h:outputScript name="js/xlsx.js" />
+    	
+    	
+    </h:body>
+</html>

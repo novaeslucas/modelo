@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	
+	<welcome-file-list>
+	  <welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+	<session-config>
+	  <session-timeout>60</session-timeout>
+	</session-config>
+	
+	<context-param>
+		<param-name>primefaces.UPLOADER</param-name>
+		<param-value>auto</param-value>
+	</context-param>
+	
+	<context-param>
+	  <param-name>facelets.DEVELOPMENT</param-name>
+	  <param-value>true</param-value>
+	</context-param>
+	
+	<context-param>
+	  <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+	  <param-value>true</param-value>
+	</context-param>
+	
+	<context-param>
+	  <param-name>primefaces.THEME</param-name>
+	  <param-value>bootstrap</param-value>
+	</context-param>
+	
+	<context-param>
+	  <param-name>primefaces.FONT_AWESOME</param-name>
+	  <param-value>true</param-value>
+	</context-param>
+	
+	<listener>
+	  <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+	</listener>
+	
+	<servlet>
+	  <servlet-name>Faces Servlet</servlet-name>
+	  <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+	  <load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+	  <servlet-name>Faces Servlet</servlet-name>
+	  <url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+	  <filter-name>Pretty Filter</filter-name>
+	  <filter-class>com.ocpsoft.pretty.PrettyFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	  <filter-name>Pretty Filter</filter-name>
+	  <url-pattern>/*</url-pattern>
+	  <dispatcher>FORWARD</dispatcher>
+	  <dispatcher>REQUEST</dispatcher>
+	  <dispatcher>ERROR</dispatcher>
+	</filter-mapping>
+	
+	<filter>
+	  <filter-name>ShiroFilter</filter-name>
+	  <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	  <filter-name>ShiroFilter</filter-name>
+	  <url-pattern>/*</url-pattern>
+	  <dispatcher>REQUEST</dispatcher>
+	  <dispatcher>FORWARD</dispatcher>
+	  <dispatcher>INCLUDE</dispatcher>
+	  <dispatcher>ERROR</dispatcher>
+	</filter-mapping>
+	
+	<security-constraint>
+	  <display-name>Restrict raw XHTML Documents</display-name>
+	  <web-resource-collection>
+	    <web-resource-name>XHTML</web-resource-name>
+	    <url-pattern>*.xhtml</url-pattern>
+	  </web-resource-collection>
+	  <auth-constraint/>
+	</security-constraint>
+	
+	<error-page>
+	  <error-code>404</error-code>
+	  <location>/error/404.jsf</location>
+	</error-page>
+	
+	<error-page>
+	  <error-code>401</error-code>
+	  <location>/nao_autorizado.jsf</location>
+	</error-page>
+  
+	<mime-mapping>
+	   <extension>eot</extension>
+	   <mime-type>application/vnd.ms-fontobject</mime-type>
+	</mime-mapping>
+	
+	<mime-mapping>  
+	    <extension>otf</extension>  
+	    <mime-type>font/opentype</mime-type>  
+	</mime-mapping>
+	      
+	<mime-mapping>  
+	    <extension>ttf</extension>  
+	    <mime-type>application/x-font-ttf</mime-type>  
+	</mime-mapping> 
+	     
+	<mime-mapping>  
+	    <extension>woff</extension>  
+	    <mime-type>application/x-font-woff</mime-type>  
+	</mime-mapping>
+	
+	<mime-mapping>  
+	    <extension>svg</extension>  
+	    <mime-type>image/svg+xml</mime-type>  
+	</mime-mapping>
+
+</web-app>

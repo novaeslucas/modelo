@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sicm="http://java.sun.com/jsf/composite/sicm"
+	template="#{appBean.warning}">
+	
+	<ui:define name="content">
+		<div id="page_error">
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-4 text-center">
+		    		<div class="login-panel">
+					        <i class="fa fa-thumbs-o-down fa-20x"></i>
+					</div>
+				</div>
+			</div>
+			<div class="row text-center">
+				<h3>desculpe, ocorreu um erro no sistema!</h3>
+				<p>por favor, entre em contato com o administrador do sistema.</p>
+				<h4><a href="/tenismesa/home/dashboard" class="btn btn-outline btn-link">voltar</a></h4>
+			</div>
+    	</div>
+    </ui:define>
+	
+</ui:composition>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:p="http://primefaces.org/ui"
+                template="#{appBean.default}">
+                
+	<ui:define name="content">
+		<div class="row wrapper border-bottom white-bg page-heading">
+			<div class="col-lg-10">
+				<h2>
+					Buscar usuário
+				</h2>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a>Administração de usuários</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <strong>Buscar usuário</strong>
+                    </li>
+                </ol>
+			</div>
+			<div class="col-lg-2"></div>
+		</div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <h:form id="form_buscar_usuario" acceptcharset="ISO-8859-1" lang="pt_BR" role="form">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <h5>
+                                    Filtros
+                                </h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Nome do usuário</label>
+                                            <p:inputText id="nome_usuario" value="#{usuarioController.domain.nome}" styleClass="form-control input-md"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Situação</label>
+                                            <p:selectBooleanButton id="usuario_ativo" value="#{usuarioController.domain.ativo}" onLabel="Ativo" offLabel="Inativo" styleClass="form-control"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <h:commandButton id="buscar_usuario_button" styleClass="btn btn-default btn-md" value="Buscar" action="#{usuarioController.buscar}" update="@form" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <h5>
+                                    Resultados
+                                </h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <p:dataTable id="usuarios" var="usuario" value="#{usuarioController.usuarios}" rowKey="#{usuario.id}"
+                                             rows="10" paginator="true" emptyMessage="Sem registros">
+
+                                    <p:column headerText="Nome">
+                                        <h:outputText value="#{usuario.nome}" />
+                                    </p:column>
+
+                                    <p:column headerText="Email">
+                                        <h:outputText value="#{usuario.email}" />
+                                    </p:column>
+
+                                    <p:column headerText="Ações">
+                                        <div class="text-center">
+                                            <h:commandButton id="editar-usuario"
+                                                             styleClass="btn btn-info btn-xs #{usuario.ativo == false ? 'disabled' : ''}"
+                                                             style="margin-left: 2px; margin-right: 2px;"
+                                                             value="Editar"
+                                                             action="#{usuarioController.preEditar}">
+                                                <f:setPropertyActionListener target="#{usuarioController.usuarioSelected}" value="#{usuario}" />
+                                            </h:commandButton>
+                                            <h:commandButton id="remover-usuario"
+                                                             styleClass="btn btn-danger btn-xs #{usuario.ativo == false ? 'disabled' : ''}"
+                                                             style="margin-left: 2px; margin-right: 2px;"
+                                                             value="Remover"
+                                                             action="#{usuarioController.remover}">
+                                                <f:setPropertyActionListener target="#{usuarioController.usuarioSelected}" value="#{usuario}" />
+                                            </h:commandButton>
+                                        </div>
+                                    </p:column>
+
+                                </p:dataTable>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+	    
+	</ui:define>
+    
+</ui:composition>

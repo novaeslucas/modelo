@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+			<title>Empresas</title>
+        </f:facet>
+
+        <f:facet name="middle"> 		
+    		<h:outputStylesheet name="css/bootstrap.css" />
+    		<h:outputStylesheet name="font-awesome/css/font-awesome.css" />
+    		<h:outputStylesheet name="css/animate.css" />
+    		<h:outputStylesheet name="css/style.css" />
+        </f:facet>
+    </h:head>
+
+    <h:body styleClass="gray-bg">
+    	<div class="middle-box text-center loginscreen animated fadeInDown">
+	        <div>
+	            <h3>Bem vindo ao Sistema de Empreendimentos</h3>
+	            <ui:insert name="content" />
+	        </div>
+	    </div>
+    	<h:outputScript name="js/jquery-3.1.1.min.js" />
+    	<h:outputScript name="js/popper.min.js" />
+    	<h:outputScript name="js/bootstrap.js" />
+    	
+    </h:body>
+</html>

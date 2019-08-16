@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xml:lang="pt-br" lang="pt-br">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+            <meta http-equiv="Content-Language" content="pt-br" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>Empresas</title>
+        </f:facet>
+
+        <f:facet name="middle">
+            <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+            <h:outputStylesheet name="css/dashboard.css" />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+            <h:outputScript name="bootstrap/js/bootstrap.js" />
+        </f:facet>
+
+        <f:facet name="last">
+            <h:outputStylesheet name="css/font-awesome.css" />
+        </f:facet>
+        
+    </h:head>
+
+    <h:body>
+        <div id="wrapper">
+    	
+    		<div id="page-wrapper-warning">
+		    	<ui:insert name="content" />			
+    		</div>
+    	
+    	</div>
+    	<h:outputScript name="bootstrap/js/jquery-1.11.0.min.js" />
+        <h:outputScript name="bootstrap/js/bootstrap.js" />
+        <h:outputScript name="metisMenu/js/metisMenu.js" />
+        <h:outputScript name="js/default.js" />
+    </h:body>
+</html>

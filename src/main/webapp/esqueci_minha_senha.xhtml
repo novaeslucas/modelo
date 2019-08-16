@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:sicm="http://java.sun.com/jsf/composite/sicm"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="#{appBean.common}">	
+
+	<ui:define name="content">
+	
+		<h:form id="frm" acceptcharset="ISO-8859-1" lang="pt_BR">
+			<p:growl id="messages" globalOnly="true" /> 
+			<div class="caption">
+				Esqueci minha senha!
+			</div>
+			<div class="caption-body">
+				<ul class="domain_forms">
+					<li>
+						Para obter uma nova senha digite abaixo o login de acesso ao sistema.<br/>
+						<sicm:required-legend/>
+					</li>
+					<li>
+						<div class="domain_form_component">
+							<label for="login">
+								Login<sicm:required/>
+							</label>
+							<p:inputText id="login" size="50" maxlength="50" value="#{usuarioController.domain.login}" style="float: left;"/>  
+							<div class="domain_messages">
+								<p:message for="login" />
+							</div>
+							<div style="clear: both;"></div>
+						</div>
+					</li>
+					<li class="domain_buttons">
+						<p:commandButton value="Alterar Senha" action="#{usuarioController.esqueciMinhaSenha}" update="@form" icon="ui-icon-key" />
+					</li>
+				</ul>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pretty-config>
+
+    <url-mapping id="navegador">
+		<pattern value="/navegador" />
+		<view-id value="/navegador.jsf" />
+	</url-mapping>
+	
+	<url-mapping id="login">
+		<pattern value="/login" />
+		<view-id value="/login.jsf" />
+	</url-mapping>
+	
+	<url-mapping id="esqueci-minha-senha">
+		<pattern value="/esqueci_minha_senha" />
+		<view-id value="/esqueci_minha_senha.jsf" />
+	</url-mapping>
+	
+	<url-mapping id="recuperar-senha">
+		<pattern value="/recuperar_senha/#{token}" />
+		<view-id value="/recuperar_senha.jsf" />
+	</url-mapping>
+	
+	<url-mapping id="nao-autorizado">
+		<pattern value="/nao_autorizado" />
+		<view-id value="/nao_autorizado.jsf" />
+	</url-mapping>
+	
+	<url-mapping id="home">
+		<pattern value="/home" />
+		<view-id value="/home.jsf" />
+	</url-mapping>
+	
+	<!-- Administracao de usuarios -->
+
+	<url-mapping id="buscar-usuario">
+		<pattern value="/administracao/usuario/buscar" />
+		<view-id value="/administracao/buscar_usuario.jsf" />
+	</url-mapping>
+
+	<url-mapping id="cadastrar-usuario">
+		<pattern value="/administracao/usuario/cadastrar" />
+		<view-id value="/administracao/cadastrar_usuario.jsf" />
+	</url-mapping>
+
+	<url-mapping id="editar-usuario">
+		<pattern value="/administracao/usuario/editar/#{id}" />
+		<view-id value="/administracao/cadastrar_usuario.jsf" />
+	</url-mapping>
+
+	<url-mapping id="alterar-senha-usuario">
+		<pattern value="/administracao/usuario/alterar-senha" />
+		<view-id value="/administracao/alterar_senha.jsf" />
+	</url-mapping>
+
+	<!-- Fim Administracao de usuarios -->
+	
+</pretty-config>

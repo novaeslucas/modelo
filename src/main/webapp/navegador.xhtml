@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sicm="http://java.sun.com/jsf/composite/sicm"
+	template="/template/main_content_less.xhtml">
+	
+	<ui:define name="content">
+	
+		<style type="text/css">
+        	ul{
+				width: 100%;
+				text-align: center;	
+			}
+			li{
+				list-style: none;
+				display: inline;
+			}
+			h3{
+				color: #818948;
+				font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+				text-align: center;
+				width: 100%;
+			
+			}
+        </style>
+		
+		<div>
+			<h3>Browser não compatível com o sistema. Recomendamos a utilização dos seguintes browser.</h3>	
+		</div>
+    	<ul>
+		  	<li><a href="http://www.mozilla.org/pt-BR/firefox/new/"><h:graphicImage value="/img/firefox.jpeg" alt="Download Firefox" /></a> </li>
+		 	<li><a href="http://www.google.com/chrome/?hl=pt-BR"> <h:graphicImage value="/img/chrome.jpeg" alt="Download Google Chrome" /> </a> </li>
+		  	<li><a href="http://support.apple.com/pt_BR/downloads/#safari"> <h:graphicImage value="/img/safari.jpeg" alt="Download Safari"   /> </a> </li>
+		 </ul>
+		 
+    </ui:define>
+	
+</ui:composition>
